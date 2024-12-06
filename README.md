@@ -25,7 +25,7 @@ python init_admin.py
 
 ## Inicial proyecto
 ```bash
-pip run.py
+python run.py
 ```
 
 ## Por defecto el usuario de admin ya esta predeterminado en la base de datos
