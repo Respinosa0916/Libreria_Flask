@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Libros{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Gestión de Libros</h1>
+    <a href="{{ url_for('admin.nuevo_libro') }}" class="btn btn-primary">Nuevo Libro</a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped align-middle">
+        <thead>
+            <tr>
+                <th>Portada</th>
+                <th>ISBN</th>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for libro in libros %}
+            <tr>
+                <td>
+                    {% if libro.portada %}
+                        <img src="{{ url_for('static', filename='uploads/' + libro.portada) }}" 
+                             alt="Portada de {{ libro.titulo }}" 
+                             class="img-thumbnail" 
+                             style="max-height: 100px;">
+                    {% else %}
+                        <div class="text-muted">Sin portada</div>
+                    {% endif %}
+                </td>
+                <td>{{ libro.isbn }}</td>
+                <td>{{ libro.titulo }}</td>
+                <td>{{ libro.autor.nombre }} {{ libro.autor.apellido }}</td>
+                <td>{{ libro.categoria.nombre }}</td>
+                <td>${{ "%.2f"|format(libro.precio) }}</td>
+                <td>
+                    <a href="{{ url_for('admin.editar_libro', isbn=libro.isbn) }}" class="btn btn-sm btn-warning">Editar</a>
+                    <form action="{{ url_for('admin.eliminar_libro', isbn=libro.isbn) }}" method="POST" class="d-inline">
+                        <button type="button" class="btn btn-sm btn-danger btn-eliminar" data-isbn="{{ libro.isbn }}">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

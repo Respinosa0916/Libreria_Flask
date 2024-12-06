@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rincón Cordobés</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/icono_libreria.png') }}">
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">Rincón Cordobés</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('auth.login') }}">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('auth.register') }}">Registrarse</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main>
+        <div class="container text-center mt-5">
+            <h1>Bienvenido a Rincón Cordobés</h1>
+            <section>
+                <img src="{{ url_for('static', filename='img/galeria_1.jpg') }}">
+                <img src="{{ url_for('static', filename='img/galeria_2.png') }}">
+                <img src="{{ url_for('static', filename='img/galeria_3.jpg') }}">
+                <img src="{{ url_for('static', filename='img/galeria_4.jpg') }}">
+                <img src="{{ url_for('static', filename='img/galeria_5.jpg') }}">
+            </section>
+            <p class="lead">
+                Rincón Cordobés es una biblioteca en línea donde puedes explorar una amplia variedad de libros de diferentes categorías.
+            </p>
+            <p>
+                Nuestro objetivo es promover la lectura y ofrecer un espacio accesible para todos los amantes de los libros. Aquí encontrarás desde novelas clásicas hasta los títulos más recientes.
+            </p>
+            <a href="{{ url_for('auth.login') }}" class="btn btn-primary">Explorar la Biblioteca</a>
+        </div>
+
+        <!-- Galería: Importancia de las Librerías -->
+        <div class="container mt-5">
+            <h2 class="text-center">La Importancia de las Librerías</h2>
+            <p class="text-center">Las librerías son espacios fundamentales para el acceso a la cultura, el aprendizaje y el fomento de la lectura. A continuación, te mostramos algunas de sus características más destacadas:</p>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <!-- Tarjeta 1 -->
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="{{ url_for('static', filename='img/cultua.jpg') }}" class="card-img-top" alt="Acceso a la Cultura">
+                        <div class="card-body">
+                            <h5 class="card-title">Acceso a la Cultura</h5>
+                            <p class="card-text">Las librerías permiten que cualquier persona tenga acceso a una gran variedad de libros que enriquecen el conocimiento cultural.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tarjeta 2 -->
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="{{ url_for('static', filename='img/aprendizaje.jpg') }}" class="card-img-top" alt="Fomento de la Lectura">
+                        <div class="card-body">
+                            <h5 class="card-title">Fomento de la Lectura</h5>
+                            <p class="card-text">Al ofrecer libros para todos los gustos, las librerías contribuyen a fomentar el hábito de la lectura en todas las edades.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tarjeta 3 -->
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="{{ url_for('static', filename='img/lectura.jpg') }}" class="card-img-top" alt="Espacios de Aprendizaje">
+                        <div class="card-body">
+                            <h5 class="card-title">Espacios de Aprendizaje</h5>
+                            <p class="card-text">Las librerías no solo venden libros, también son lugares de aprendizaje y encuentro donde se pueden realizar talleres y eventos culturales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2024 Rincón Cordobés. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+

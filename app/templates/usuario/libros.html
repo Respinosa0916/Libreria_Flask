@@ -1,0 +1,25 @@
+{% extends "usuario/base.html" %}
+
+{% block title %}Libros{% endblock %}
+
+{% block content %}
+<h1>Libros Disponibles</h1>
+<div class="row">
+    {% for libro in libros %}
+    <div class="col-md-4 mb-3">
+        <div class="card">
+            <img src="{{ url_for('static', filename='uploads/' + libro.portada) }}" 
+                alt="Portada de {{ libro.titulo }}" 
+                class="img-fluid rounded" 
+                style="max-height: 100%; max-width: 100%; object-fit: contain;">
+            <div class="card-body">
+                <h5 class="card-title">{{ libro.titulo }}</h5>
+                <p class="card-text"><strong>Autor:</strong> {{ libro.autor.nombre }} {{ libro.autor.apellido }}</p>
+                <p class="card-text"><strong>Precio:</strong> ${{ libro.precio }}</p>
+                <a href="{{ url_for('usuario.detalle_libro', isbn=libro.isbn) }}" class="btn btn-primary">Ver más</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

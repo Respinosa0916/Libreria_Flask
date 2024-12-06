@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h1>Panel de Administración</h1>
+<div class="row mt-4">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Libros</h5>
+                <p class="card-text">Administrar catálogo de libros</p>
+                <a href="{{ url_for('admin.libros') }}" class="btn btn-primary">Gestionar Libros</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Autores</h5>
+                <p class="card-text">Administrar autores</p>
+                <a href="{{ url_for('admin.autores') }}" class="btn btn-primary">Gestionar Autores</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Categorías</h5>
+                <p class="card-text">Administrar categorías de libros</p>
+                <a href="{{ url_for('admin.categorias') }}" class="btn btn-primary">Gestionar Categorías</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

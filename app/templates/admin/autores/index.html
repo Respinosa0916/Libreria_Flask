@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Autores{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Gestión de Autores</h1>
+    <a href="{{ url_for('admin.nuevo_autor') }}" class="btn btn-primary">Nuevo Autor</a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for autor in autores %}
+            <tr>
+                <td>{{ autor.id }}</td>
+                <td>{{ autor.nombre }}</td>
+                <td>{{ autor.apellido }}</td>
+                <td>{{ autor.fecha_nacimiento.strftime('%d/%m/%Y') }}</td>
+                <td>
+                    <a href="{{ url_for('admin.editar_autor', id=autor.id) }}" class="btn btn-sm btn-warning">Editar</a>
+                    <form action="{{ url_for('admin.eliminar_autor', id=autor.id) }}" method="POST" class="d-inline">
+                        <button type="button" class="btn btn-sm btn-danger btn-eliminar" data-id="{{ autor.id }}">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
