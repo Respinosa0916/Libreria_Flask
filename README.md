@@ -1,5 +1,11 @@
 # Comandos para el uso de Flask
 
+## Clonar el repositorio
+Para clonar el repositorio abre la consola de git con el directorio en el cual se va a clonar
+```bash
+git clone https://github.com/Respinosa0916/Libreria_Flask.git
+```
+
 ## Creación del entorno virtual
 Para crear un entorno virtual en Python, ejecuta el siguiente comando:
 ```bash
